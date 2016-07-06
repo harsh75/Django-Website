@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bstopia</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../file1/">Bstopia</a>
+    </div>
+    
+    <ul class="nav navbar-nav">
+    {% for category in categories %}
+      <li><a href="../file1/{{ category.category_text}}/">{{ category.category_text }}</a></li>
+   {% endfor %}
+    </ul>
+  </div>
+</nav>
+-->  
+
+<div class="container">
+  <img src="/media/{{particular.imageList}}" width="1000px" height="200px"></img></center>
+  <h1>{{particular.list_name}}</h1>
+
+<p>
+Here is some ranking about the page <br>
+{{particular.list_ranking}}
+</p>
+<p>
+Here is some reviews about the page <br>
+{{particular.list_ratings}} / 5
+</p>
+<p>
+Here is the bestopia review
+  <ul>
+  {% for i in particular.userreviews_set.all %}
+    <li>{{i.reviews_text}}</li>
+  {% endfor%}
+  </ul>
+</p
+</p>
+
+<form action="" method='post' name='form'>{% csrf_token %}
+
+<ul>
+
+{{form.as_ul}}
+
+</ul>
+<input type='submit' name='Create Comments' value='Create Comments' >
+</form>
+
+
+These are some of the peoples memories:
+ <ul>
+  {% for i in particular.shareyourmemory_set.all %}
+    <li>{{i.memory_title}}</li>
+        <ol>
+          <li>{{i.memory_description}}</li>
+        </ol>
+  {%endfor%}
+  </ul>
+
+
+<h1>Share your memories</h1>
+<form action="" method='post' name='form1'>{% csrf_token %}
+
+{{form1.as_ul}}
+
+<input type='submit'name='Share Your Memories' value='Share Your Memories'>
+</form>
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<title>Bstopia-{{eachcategories.subcategory_text}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Montserrat", sans-serif;font-weight:bold}
+img {margin-bottom:-7px;}
+.w3-row-padding img {margin-bottom:12px}
+</style>
+<div class="container">
+<h1><center>{{eachcategories.subcategory_text}}</center></h1>
+<center><img src="/media/{{eachcategories.thumbnails}}" width="1000px" height="200px" alt="Engg image"></img></center>
+</div>
+<br><br>
+
+<h1>Django Content</h1>
+<div class="container">
+Path: Home >> <a> {{eachcategories.category_text}}</a> >> <a>{{eachcategories.subcategory_text}}</a>>
+</div>
+<h1>Django Content End</h1>
+<!-- !PAGE CONTENT! -->
+
+<div class="w3-content" style="max-width:1500px">
+<div class="w3-container w3-padding-32 w3-center w3-opacity w3-margin-bottom">
+  <span class="w3-opennav w3-xxlarge w3-right w3-margin-right" onclick="w3_open()"><i class="fa fa-bars"></i></span> 
+  <div class="w3-clear"></div>
+  <h1>Categories</h1>
+</div>
+
+<!-- Photo Grid -->
+<div id="myGrid">
+  <div class="w3-third">
+    {% for eachcategory in eachcategories.list_set.all %}
+    <h2><a href="./{{eachcategory.id}}/">{{ eachcategory.list_text }}</a></h2>
+    <img src="#" alt="{{ eachcategory.list_text }}">
+    {% endfor %}
+   </div>
+
+</div>
+<!-- Clear floats -->
+<div class="w3-clear"></div><br><br>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-margin-top w3-opacity"> 
+ <div class="w3-xlarge w3-padding-32">
+   <a href="#" class="w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i></a>
+   <a href="#" class="w3-hover-text-red w3-show-inline-block"><i class="fa fa-pinterest-p"></i></a>
+   <a href="#" class="w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i></a>
+   <a href="#" class="w3-hover-text-grey w3-show-inline-block"><i class="fa fa-flickr"></i></a>
+   <a href="#" class="w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i></a>
+ </div>
+  <p style="font-weight:normal">Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+ 
+<script>
+// Toggle grid padding
+function myFunction() {
+    var x = document.getElementById("myGrid");
+    if (x.className.indexOf("w3-row-padding") == -1) {
+        x.className += " w3-row-padding";
+    } else { 
+        x.className = x.className.replace(" w3-row-padding", "");
+    }
+}
+
+// Open and close sidenav
+function w3_open() {
+    document.getElementsByClassName("w3-sidenav")[0].style.width = "100%";
+    document.getElementsByClassName("w3-sidenav")[0].style.display = "block";
+}
+
+function w3_close() {
+    document.getElementsByClassName("w3-sidenav")[0].style.display = "none";
+}
+</script>
+
+</body>
+</html>
