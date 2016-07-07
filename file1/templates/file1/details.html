@@ -27,38 +27,36 @@
 
 <div class="container">
   <img src="/media/{{particular.imageList}}" width="1000px" height="200px"></img></center>
-  <h1>{{particular.list_name}}</h1>
+  <h1><center>{{particular.list_name}}</center></h1>
 
 <p>
-Here is some ranking about the page <br>
-{{particular.list_ranking}}
+Name:{{particular.list_name}}
 </p>
 <p>
-Here is some reviews about the page <br>
-{{particular.list_ratings}} / 5
+Ratngs:{{particular.list_ratings}}
 </p>
 <p>
-Here is the bestopia review
+Total:{{particular.list_total}}
+</p>
+<br>
+<br>
+<h3>User Reviews</h3>
   <ul>
   {% for i in particular.userreviews_set.all %}
     <li>{{i.reviews_text}}</li>
   {% endfor%}
   </ul>
-</p
-</p>
 
+<marquee>Submit Your reviews</marquee>
 <form action="" method='post' name='form'>{% csrf_token %}
-
 <ul>
-
 {{form.as_ul}}
-
 </ul>
 <input type='submit' name='Create Comments' value='Create Comments' >
 </form>
 
 
-These are some of the peoples memories:
+Add you your memories:
  <ul>
   {% for i in particular.shareyourmemory_set.all %}
     <li>{{i.memory_title}}</li>

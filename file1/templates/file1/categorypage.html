@@ -38,9 +38,8 @@
  
   
   <h1>{{subcategories.category_text}}</h1>
-  <h3>All About this category</h3>
-  <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
-  <p>The left menu sticks the page after you have scrolled a specified amount of pixels, and the links in the menu are automatically updated based on scroll position.</p>
+  <h3>Some of the best Restaurants in Bangalore </h3>
+  <p>Here are the list of some of the restaurants we have reviewed and ranked them according to peoples review . You can also review about each of the restaurant</p>
 </div>
 <div class="container">
 Path: <a href="#">Home </a> >>{{subcategories.category_text}}
@@ -59,8 +58,14 @@ Path: <a href="#">Home </a> >>{{subcategories.category_text}}
       </ul>
     </nav>
     <div class="col-sm-9">
-      
-      <div id="section1">    
+      {% for subcategory in  ordering %}
+       <div id="section{{loop.counter}}">    
+        <h1><a href="./{{subcategory.id}}">{{ subcategory.list_name}}</a></h1>
+        <p>Click on it to get more information about it </p>
+      </div>
+        
+      {% endfor %}
+      <!-- <div id="section1">    
         <h1>Section 1</h1>
         <p>Try to scroll this section and look at the navigation list while scrolling!</p>
       </div>
@@ -83,7 +88,7 @@ Path: <a href="#">Home </a> >>{{subcategories.category_text}}
       <div id="section42">
         <h1>Section 4-2</h1>
         <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
+      </div> -->
   </div>
 </div>
 </div>
